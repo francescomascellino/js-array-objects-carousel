@@ -101,8 +101,6 @@ for (const key in slides) {
 
 function sliderControl(direction) {
 
-    //console.log(this.classList)
-
     // select the current slide
     const currentSlide = slidesImages[activeSlide];
     console.log("currentSlide = ", currentSlide);
@@ -158,59 +156,63 @@ function sliderControl(direction) {
 
 };
 
+//FERMA IL CAROSELLO
+clearInterval(looper);
+
 // intercept click on the next icon 
-nextEl.addEventListener('click', () => { sliderControl("next") }
+/* ORIGINAL FUNCTION
+    function () {
+    console.log('cliccato su next');
+ 
+    // select the current slide
+    const currentSlide = slidesImages[activeSlide]
+    console.log("currentSlide = ", currentSlide);
+ 
+    // remove the active class from the current slide
+    currentSlide.classList.remove('active')
+ 
+    // select the active thumb
+    const currentThumb = document.querySelector('.thumbnails > img.active')
+    console.log("currentThumb = ", currentThumb);
+ 
+    // remove the active class from the active thumb
+    currentThumb.classList.remove('active');
+ 
+    //after we remove the acrive class from the images we increment the activeSlide value by 1
+    if (activeSlide === slidesImages.length - 1) {
+        activeSlide = 0
+ 
+    } else {
+ 
+        // increment the activeSlide of 1
+        activeSlide++
+        console.log("activeSlide = ", activeSlide);
+ 
+    }
+ 
+    // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
+    const nextSlide = slidesImages[activeSlide]
+    console.log("nextSlide = ", nextSlide);
+ 
+    // add the active class to the next slide
+    nextSlide.classList.add('active');
+ 
+    // select the next thumb
+    const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
+    console.log("nextThumb = ", nextThumb);
+ 
+    // add to the next thumb the active class
+    nextThumb.classList.add('active');
+ 
+} */
+nextEl.addEventListener('click', () => { sliderControl("next") });
 
-    /* ORIGINAL FUNCTION
-        function () {
-        console.log('cliccato su next');
-    
-        // select the current slide
-        const currentSlide = slidesImages[activeSlide]
-        console.log("currentSlide = ", currentSlide);
-    
-        // remove the active class from the current slide
-        currentSlide.classList.remove('active')
-    
-        // select the active thumb
-        const currentThumb = document.querySelector('.thumbnails > img.active')
-        console.log("currentThumb = ", currentThumb);
-    
-        // remove the active class from the active thumb
-        currentThumb.classList.remove('active');
-    
-        //after we remove the acrive class from the images we increment the activeSlide value by 1
-        if (activeSlide === slidesImages.length - 1) {
-            activeSlide = 0
-    
-        } else {
-    
-            // increment the activeSlide of 1
-            activeSlide++
-            console.log("activeSlide = ", activeSlide);
-    
-        }
-    
-        // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
-        const nextSlide = slidesImages[activeSlide]
-        console.log("nextSlide = ", nextSlide);
-    
-        // add the active class to the next slide
-        nextSlide.classList.add('active');
-    
-        // select the next thumb
-        const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
-        console.log("nextThumb = ", nextThumb);
-    
-        // add to the next thumb the active class
-        nextThumb.classList.add('active');
-    
-    } */
-
-);
+//FERMA IL CAROSELLO SE ATTIVO IL CLICK DI NEXT
+nextEl.addEventListener('click', () => { clearInterval(looper) });
 
 // intercept click on the prev icon
-/* prevEl.addEventListener('click', () => {
+/* ORIGINAL EVENT LISTENER
+prevEl.addEventListener('click', () => {
 
     // console.log('cliccato su prev');
 
@@ -259,48 +261,56 @@ nextEl.addEventListener('click', () => { sliderControl("next") }
 prevEl.addEventListener('click', () => { sliderControl("prev") }
 );
 
+//FERMA IL CAROSELLO SE ATTIVO IL CLICK DI PREV
+prevEl.addEventListener('click', () => { clearInterval(looper) });
+
 //CAROUSEL LOOP
 loop.addEventListener("click", () => {
-    loop.classList.toggle("on");
-    loop.classList.toggle("off");
-    console.log(loop);
+    // loop.classList.toggle("on");
+    // loop.classList.toggle("off");
+    // console.log(loop);
 
-    if (loop.classList.contains("on")) {
+    // if (loop.classList.contains("on")) {
 
-        //PER PASSARE PARAMETRI A SET INTERVAL SI PUO' USARE UNA FUNZIONE ANONIMA
-        // setInterval(() => { sliderControl("next") }, sliderSpeed);
+    //PER PASSARE PARAMETRI A SET INTERVAL SI PUO' USARE UNA FUNZIONE ANONIMA
+    // setInterval(() => { sliderControl("next") }, sliderSpeed);
 
-        //O INSERIRLI DOPO IL TIMER
-        looper = setInterval(sliderControl, sliderSpeed, direction);
+    //O INSERIRLI DOPO IL TIMER
+    // looper = setInterval(sliderControl, sliderSpeed, direction);
 
-        loop.innerHTML = "INTERROMPI IL CAROSELLO";
-    }
+    loop.innerHTML = "FERMA IL CAROSELLO";
+    // }
 
-    if (loop.classList.contains("off")) {
-        clearInterval(looper);
-        loop.innerHTML = "AVVIA IL CAROSELLO";
+    // if (loop.classList.contains("off")) {
+    clearInterval(looper);
+    // loop.innerHTML = "AVVIA IL CAROSELLO";
 
-    }
+    // }
 
-})
+}
+)
 
-/* changeWay.addEventListener("click", () => {
+changeWay.addEventListener("click", () => {
     changeWay.classList.toggle("forward");
     changeWay.classList.toggle("backward");
     console.log(changeWay);
 
     if (changeWay.classList.contains("forward")) {
 
-        direction = "prev";
+        direction = "next";
         changeWay.innerHTML = "BACKWARD";
         console.log(direction);
+        clearInterval(looper);
+        looper = setInterval(sliderControl, sliderSpeed, direction);
     }
 
     if (changeWay.classList.contains("backward")) {
-        direction = "next";
+        direction = "prev";
         changeWay.innerHTML = "FORWARD";
         console.log(direction);
+        clearInterval(looper);
+        looper = setInterval(sliderControl, sliderSpeed, direction);
 
     }
 
-}) */
+})
