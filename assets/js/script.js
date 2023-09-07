@@ -55,6 +55,7 @@ let activeSlide = 0;
 let direction = "";
 let looper;
 sliderSpeed = 1500;
+const loop = document.getElementById("loop");
 
 // select the dom elements
 const sliderImagesEl = document.querySelector('.slider .images');
@@ -257,10 +258,6 @@ prevEl.addEventListener('click', () => { sliderControl("prev") }
 );
 
 //CAROUSEL LOOP
-// setInterval(() => { sliderControl(direction) }, sliderSpeed);
-
-const loop = document.getElementById("loop");
-
 loop.addEventListener("click", () => {
     loop.classList.toggle("on");
     loop.classList.toggle("off");
