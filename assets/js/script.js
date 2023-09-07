@@ -268,7 +268,7 @@ prevEl.addEventListener('click', () => { clearInterval(looper) });
 loop.addEventListener("click", () => {
     // loop.classList.toggle("on");
     // loop.classList.toggle("off");
-    // console.log(loop);
+    // clearInterval(looper);
 
     // if (loop.classList.contains("on")) {
 
@@ -279,7 +279,7 @@ loop.addEventListener("click", () => {
     // looper = setInterval(sliderControl, sliderSpeed, direction);
 
     loop.innerHTML = "FERMA IL CAROSELLO";
-    // }
+    //  }
 
     // if (loop.classList.contains("off")) {
     clearInterval(looper);
@@ -293,7 +293,7 @@ loop.addEventListener("click", () => {
 changeWay.addEventListener("click", () => {
     changeWay.classList.toggle("forward");
     changeWay.classList.toggle("backward");
-    console.log(changeWay);
+    clearInterval(looper);
 
     if (changeWay.classList.contains("forward")) {
 
@@ -301,6 +301,11 @@ changeWay.addEventListener("click", () => {
         changeWay.innerHTML = "BACKWARD";
         console.log(direction);
         clearInterval(looper);
+
+        //PER PASSARE PARAMETRI A SET INTERVAL SI PUO' USARE UNA FUNZIONE ANONIMA
+        // setInterval(() => { sliderControl("next") }, sliderSpeed);
+
+        //O INSERIRLI DOPO IL TIMER
         looper = setInterval(sliderControl, sliderSpeed, direction);
     }
 
