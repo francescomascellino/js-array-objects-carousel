@@ -26,33 +26,35 @@ E se volessi un bottone per invertire la "direzione" del carosello? */
 const slides = [
     {
         path: 'https://picsum.photos/300/300?random=1',
-        // status: "active",
+
     },
 
     {
         path: 'https://picsum.photos/300/300?random=2',
-        // status: "active",
+
     },
 
     {
         path: 'https://picsum.photos/300/300?random=3',
-        // status: "active",
+
     },
 
     {
         path: 'https://picsum.photos/300/300?random=4',
-        // status: "active",
+
     },
 
     {
         path: 'https://picsum.photos/300/300?random=5',
-        // status: "active",
+
     }
 
 ]
 
 let activeSlide = 0;
 let direction = "";
+let looper;
+sliderSpeed = 1500;
 
 // select the dom elements
 const sliderImagesEl = document.querySelector('.slider .images');
@@ -94,7 +96,9 @@ for (const key in slides) {
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup);
 };
 
-function sliderControl() {
+function sliderControl(direction) {
+
+    //console.log(this.classList)
 
     // select the current slide
     const currentSlide = slidesImages[activeSlide];
@@ -110,15 +114,29 @@ function sliderControl() {
     // remove the active class from the active thumb
     currentThumb.classList.remove('active');
 
-    //after we remove the acrive class from the images we increment the activeSlide value by 1
-    if (activeSlide === slidesImages.length - 1) {
-        activeSlide = 0;
+    //after we remove the acrive class from the images we increment the activeSlide value by 1    
+    if (direction == "next") {
 
-    } else {
         // increment the activeSlide of 1
-        activeSlide++;
-    }
+        if (activeSlide === slidesImages.length - 1) {
+            activeSlide = 0;
+        } else {
+            activeSlide++;
+        }
 
+    } else if (direction == "prev") {
+
+        // increment the activeSlide of 1
+        if (activeSlide == 0) {
+            activeSlide = slidesImages.length - 1;
+
+        } else {
+
+            activeSlide--;
+
+        }
+    }
+    console.log("activeSlide =", activeSlide);
     // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
     const nextSlide = slidesImages[activeSlide];
     console.log("nextSlide = ", nextSlide);
@@ -138,7 +156,7 @@ function sliderControl() {
 };
 
 // intercept click on the next icon 
-nextEl.addEventListener('click', sliderControl
+nextEl.addEventListener('click', () => { sliderControl("next") }
 
     /* ORIGINAL FUNCTION
         function () {
@@ -188,10 +206,8 @@ nextEl.addEventListener('click', sliderControl
 
 );
 
-
-
 // intercept click on the prev icon
-prevEl.addEventListener('click', () => {
+/* prevEl.addEventListener('click', () => {
 
     // console.log('cliccato su prev');
 
@@ -236,5 +252,31 @@ prevEl.addEventListener('click', () => {
     // add to the next thumb the active class
     nextThumb.classList.add('active');
 
-})
+}) */
+prevEl.addEventListener('click', () => { sliderControl("prev") }
+);
 
+//CAROUSEL LOOP
+// setInterval(() => { sliderControl(direction) }, sliderSpeed);
+
+const loop = document.getElementById("loop");
+
+loop.addEventListener("click", () => {
+    loop.classList.toggle("on");
+    loop.classList.toggle("off");
+    console.log(loop);
+
+    if (loop.classList.contains("on")) {
+
+        //PER PASSARE PARAMETRI A SET INTERVAL SI PUO' USARE UNA FUNZIONE ANONIMA
+        // setInterval(() => { sliderControl("next") }, sliderSpeed);
+
+        //O INSERIRLI DOPO IL TIMER
+        looper = setInterval(sliderControl, sliderSpeed, "next");
+    }
+
+    if (loop.classList.contains("off")) {
+        clearInterval(looper)
+    }
+
+})
