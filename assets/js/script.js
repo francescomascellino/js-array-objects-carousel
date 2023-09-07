@@ -165,35 +165,52 @@ function sliderControl(direction) {
     currentThumb.classList.remove('active');
 
     //after we remove the acrive class from the images we increment the activeSlide value by 1
-    if (activeSlide === slidesImages.length - 1) {
-        activeSlide = 0
 
-    } else if (direction == "next") {
+    switch (direction) {
 
-        // increment the activeSlide of 1
-        activeSlide++
-        console.log("activeSlide = ", activeSlide);
+        case "next":
 
-    } else {
-        activeSlide--
-        console.log("activeSlide = ", activeSlide);
+            if (activeSlide === slidesImages.length - 1) {
+                activeSlide = 0
+
+            } else if (direction == "next") {
+
+                // increment the activeSlide of 1
+                activeSlide++
+            }
+            break;
+
+        case "prev":
+
+            if (activeSlide === 0) {
+
+                activeSlide = slidesImages.length - 1
+
+            } else {
+
+                // decrement the activeSlide of 1
+                activeSlide--
+                console.log("activeSlide = ", activeSlide);
+
+            }
+
     }
 
-    // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
-    const nextSlide = slidesImages[activeSlide]
-    console.log("nextSlide = ", nextSlide);
-
-    // add the active class to the next slide
-    nextSlide.classList.add('active');
-
-    // select the next thumb
-    const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
-    console.log("nextThumb = ", nextThumb);
-
-    // add to the next thumb the active class
-    nextThumb.classList.add('active');
-
 }
+
+// after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
+const nextSlide = slidesImages[activeSlide]
+console.log("nextSlide = ", nextSlide);
+
+// add the active class to the next slide
+nextSlide.classList.add('active');
+
+// select the next thumb
+const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
+console.log("nextThumb = ", nextThumb);
+
+// add to the next thumb the active class
+nextThumb.classList.add('active');
 
 console.log("activeSlide = ", activeSlide);
 
@@ -201,52 +218,52 @@ console.log("activeSlide = ", activeSlide);
 
 prevEl.addEventListener('click', () => {
 
-    /*     direction = "prev";
-        console.log(direction);
-        sliderControl(direction) */
+    direction = "prev";
+    console.log(direction);
+    sliderControl(direction)
 
-    // console.log('cliccato su prev');
-
-    // select the current slide
-    const currentSlide = slidesImages[activeSlide]
-    console.log("currentSlide = ", currentSlide);
-
-    // remove the active class from the current slide
-    currentSlide.classList.remove('active')
-
-    // select the active thumb
-    const currentThumb = document.querySelector('.thumbnails > img.active')
-    console.log("currentThumb = ", currentThumb);
-
-    // remove the active class from the active thumb
-    currentThumb.classList.remove('active');
-
-    //after we remove the acrive class from the images we increment the activeSlide value by 1
-    if (activeSlide === 0) {
-
-        activeSlide = slidesImages.length - 1
-
-    } else {
-
-        // decrement the activeSlide of 1
-        activeSlide--
-        console.log("activeSlide = ", activeSlide);
-
-    }
-
-    // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
-    const nextSlide = slidesImages[activeSlide]
-    console.log("nextSlide = ", nextSlide);
-
-    // add the active class to the next slide
-    nextSlide.classList.add('active')
-
-    // select the next thumb to show
-    const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
-    console.log("nextThumb = ", nextThumb);
-
-    // add to the next thumb the active class
-    nextThumb.classList.add('active');
+    /*     // console.log('cliccato su prev');
+    
+        // select the current slide
+        const currentSlide = slidesImages[activeSlide]
+        console.log("currentSlide = ", currentSlide);
+    
+        // remove the active class from the current slide
+        currentSlide.classList.remove('active')
+    
+        // select the active thumb
+        const currentThumb = document.querySelector('.thumbnails > img.active')
+        console.log("currentThumb = ", currentThumb);
+    
+        // remove the active class from the active thumb
+        currentThumb.classList.remove('active');
+    
+        //after we remove the acrive class from the images we increment the activeSlide value by 1
+        if (activeSlide === 0) {
+    
+            activeSlide = slidesImages.length - 1
+    
+        } else {
+    
+            // decrement the activeSlide of 1
+            activeSlide--
+            console.log("activeSlide = ", activeSlide);
+    
+        }
+    
+        // after the if/else block, activeSlide has is value changed. we select again the slide with the new value to add the active class
+        const nextSlide = slidesImages[activeSlide]
+        console.log("nextSlide = ", nextSlide);
+    
+        // add the active class to the next slide
+        nextSlide.classList.add('active')
+    
+        // select the next thumb to show
+        const nextThumb = document.querySelectorAll('.thumbnails img')[activeSlide];
+        console.log("nextThumb = ", nextThumb);
+    
+        // add to the next thumb the active class
+        nextThumb.classList.add('active'); */
 
 })
 
