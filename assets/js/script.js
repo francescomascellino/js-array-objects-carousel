@@ -61,13 +61,11 @@ const prevEl = document.querySelector('.prev')
 const nextEl = document.querySelector('.next')
 
 /* Print all images into the dom */
-// loop over the slides 
-
+// for in loop over the slides
 for (const key in slides) {
 
-    console.log("key", key);
     const slidePath = slides[key].path;
-    console.log("slidepath", slidePath);
+    console.log("slidepath = chiave:", key, "valore:", slidePath);
 
     const slideMarkup = `<img class="${activeSlide == key ? 'active' : ''}" src="${slidePath}" alt="">`;
     console.log("slide markup", slideMarkup);
@@ -76,50 +74,9 @@ for (const key in slides) {
 };
 
 
-/* for (let i = 0; i < slides.length; i++) {
-
-    const slidePath = slides[i];
-    console.log(slidePath);
-
-    // TERNARY OPERATOR
-
-    // if(condition) {
-    // // code to run
-    // } else {
-    // // code to run
-    // }
-
-    // // with ternary operator
-
-    // condition ? 'code to run' : 'code to run'
-
-
-    //for each slide we create a markup element. if activeSlide is === i it has the active class. This make the code show the first image as for now activeSlide = 0. the other images will be printed on the markup without the "active" class.    
-    const slideMarkup = `<img class="${activeSlide === i ? 'active' : ''}" src="${slidePath}" alt="">`
-
-    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
-
-} */
-
-/* 
-MILESTONE 3
-Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
-*/
-
+//CRATE IMG ARRAY
 const slidesImages = document.querySelectorAll('.slider .images > img')
-console.log(slidesImages);
-
-/* 
-BONUS 1:
-Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
-*/
-
-/* 
-BONUS 2:
-Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, 
-come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato. 
-Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
-*/
+console.log("slider images =", slidesImages);
 
 //select thumbnails DOM elements
 const thumbsElement = document.querySelector('.thumbnails')
@@ -127,27 +84,14 @@ const thumbsElement = document.querySelector('.thumbnails')
 //Loops over the thumbs and prints them on the DOM
 for (const key in slides) {
 
-    console.log("key", key);
     const thumbPath = slides[key].path;
-    console.log("slidepath", thumbPath);
+    console.log("thumbpath = chiave", key, "valore", thumbPath);
 
     const thumbMarkup = `<img class="${activeSlide == key ? 'active' : ''}" src="${thumbPath}" alt="">`;
-    console.log("slide markup", thumbPath);
+    console.log("thumb markup", thumbMarkup);
 
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup);
 };
-
-/* for (let i = 0; i < slides.length; i++) {
-
-    //The thumb path is the same as the slides
-    const thumbPath = slides[i];
-
-    //for each thumbnail we create a markup element. if activeSlide is === i it has the active class. This make the code show the first image as for now activeSlide = 0. the other images will be printed on the markup without the "active" class.
-    const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${thumbPath}" alt="">`
-
-    thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
-
-} */
 
 // intercept click on the next icon 
 nextEl.addEventListener('click', function () {
