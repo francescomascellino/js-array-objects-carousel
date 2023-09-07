@@ -52,10 +52,12 @@ const slides = [
 ]
 
 let activeSlide = 0;
-let direction = "";
+let direction = "next";
 let looper;
 sliderSpeed = 1500;
 const loop = document.getElementById("loop");
+const changeWay = document.getElementById("changeWay");
+changeWay
 
 // select the dom elements
 const sliderImagesEl = document.querySelector('.slider .images');
@@ -269,7 +271,7 @@ loop.addEventListener("click", () => {
         // setInterval(() => { sliderControl("next") }, sliderSpeed);
 
         //O INSERIRLI DOPO IL TIMER
-        looper = setInterval(sliderControl, sliderSpeed, "next");
+        looper = setInterval(sliderControl, sliderSpeed, direction);
 
         loop.innerHTML = "INTERROMPI IL CAROSELLO";
     }
@@ -281,3 +283,24 @@ loop.addEventListener("click", () => {
     }
 
 })
+
+/* changeWay.addEventListener("click", () => {
+    changeWay.classList.toggle("forward");
+    changeWay.classList.toggle("backward");
+    console.log(changeWay);
+
+    if (changeWay.classList.contains("forward")) {
+
+        direction = "prev";
+        changeWay.innerHTML = "BACKWARD";
+        console.log(direction);
+    }
+
+    if (changeWay.classList.contains("backward")) {
+        direction = "next";
+        changeWay.innerHTML = "FORWARD";
+        console.log(direction);
+
+    }
+
+}) */
