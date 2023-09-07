@@ -270,10 +270,14 @@ loop.addEventListener("click", () => {
 
         //O INSERIRLI DOPO IL TIMER
         looper = setInterval(sliderControl, sliderSpeed, "next");
+
+        loop.innerHTML = "INTERROMPI IL CAROSELLO";
     }
 
     if (loop.classList.contains("off")) {
-        clearInterval(looper)
+        clearInterval(looper);
+        loop.innerHTML = "AVVIA IL CAROSELLO";
+
     }
 
 })
