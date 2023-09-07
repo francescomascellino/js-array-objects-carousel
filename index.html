@@ -2,18 +2,24 @@
 <html>
 	<head>
 		<title>Carosello Array di Oggetti</title>
-		<!-- <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'> -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous">
+
 		<link rel='stylesheet' href='./assets/css/style.css'>
 	</head>
-	<body>
+	<body class="bg-secondary">
 
 		<div class="container">
 
-			<div class="slider">
+			<div
+				class="slider d-flex my-3 border border-2 border-secondary rounded-2 shadow">
 
-				<div class="img-container d-flex">
+				<div class="img-container col-10 d-flex">
 
-					<div class="images">
+					<div class="images col-12">
 
 						<div class="controls">
 
@@ -44,14 +50,16 @@
 
 				</div>
 
-				<div class="thumbnails">
+				<div class="thumbnails col-2">
 
 				</div>
 
 			</div>
 
-			<button id="changeWay" class="backward">AVVIA</button>
-			<button id="loop" class>FERMA IL CAROSELLO</button>
+			<div class="d-flex justify-content-center">
+				<button id="changeWay" class="btn btn-success w-25 backward shadow mx-2">AVVIA</button>
+				<button id="loop" class="btn btn-danger shadow mx-2">FERMA IL CAROSELLO</button>
+			</div>
 
 		</div>
 
