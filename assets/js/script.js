@@ -25,27 +25,27 @@ E se volessi un bottone per invertire la "direzione" del carosello? */
 
 const slides = [
     {
-        path: 'https://picsum.photos/300/300?random=1',
+        path: 'https://picsum.photos/800/800?random=1',
 
     },
 
     {
-        path: 'https://picsum.photos/300/300?random=2',
+        path: 'https://picsum.photos/800/800?random=2',
 
     },
 
     {
-        path: 'https://picsum.photos/300/300?random=3',
+        path: 'https://picsum.photos/800/800?random=3',
 
     },
 
     {
-        path: 'https://picsum.photos/300/300?random=4',
+        path: 'https://picsum.photos/800/800?random=4',
 
     },
 
     {
-        path: 'https://picsum.photos/300/300?random=5',
+        path: 'https://picsum.photos/800/800?random=5',
 
     }
 
