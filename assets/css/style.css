@@ -71,17 +71,18 @@ img {
 	left: 50%;
 	transform: translateX(-50%);
 	height: 100%;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	flex-direction: column;
 }
 
 .controls .prev,
 .controls .next {
-	width: 26px;
-	height: 26px;
-	background-color: white;
-	border-radius: 50%;
+	width: 100%;
+	height: 2rem;
+	background-color: rgba(255, 255, 255, 0.278);
 	display: flex;
 	align-items: center;
 	justify-content: center;
