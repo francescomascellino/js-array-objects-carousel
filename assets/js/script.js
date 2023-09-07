@@ -25,27 +25,27 @@ E se volessi un bottone per invertire la "direzione" del carosello? */
 
 const slides = [
     {
-        path: './assets/img/01.webp',
+        path: 'https://picsum.photos/300/300?random=1',
         // status: "active",
     },
 
     {
-        path: './assets/img/02.webp',
+        path: 'https://picsum.photos/300/300?random=2',
         // status: "active",
     },
 
     {
-        path: './assets/img/03.webp',
+        path: 'https://picsum.photos/300/300?random=3',
         // status: "active",
     },
 
     {
-        path: './assets/img/04.webp',
+        path: 'https://picsum.photos/300/300?random=4',
         // status: "active",
     },
 
     {
-        path: './assets/img/05.webp',
+        path: 'https://picsum.photos/300/300?random=5',
         // status: "active",
     }
 
@@ -97,7 +97,8 @@ for (const key in slides) {
 // intercept click on the next icon 
 nextEl.addEventListener('click', sliderControl
 
-    /* function () {
+    /* ORIGINAL FUNCTION
+        function () {
         console.log('cliccato su next');
     
         // select the current slide

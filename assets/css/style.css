@@ -98,8 +98,8 @@ img {
 }
 
 .thumbnails {
-	width: 20%;
-	height: 450px;
+	width: 90px;
+	aspect-ratio: 1/1;
 }
 
 .thumb {
