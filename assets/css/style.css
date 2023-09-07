@@ -4,34 +4,28 @@
 	box-sizing: border-box;
 }
 
-body {
-	background-color: rgba(152, 156, 156, 0.288);
-}
-
 img {
 	max-width: 100%;
 	display: block;
 }
 
-.container {
+/* .container {
 	width: 70%;
 	max-width: 1176px;
 	margin: auto
-}
+} */
 
-.row {
+/* .row {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -1rem
-}
+} */
 
 /* CSS Nesting feature (NEW) */
-.slider {
-	margin-top: 2rem;
-	/* height: 450px; */
-	display: flex;
-
-	border: 1px solid red;
+/* .slider { */
+/* margin-top: 2rem; */
+/* height: 450px; */
+/* display: flex;
 
 	/* & .images {
 		flex-grow: 1;
@@ -47,22 +41,20 @@ img {
 			display: none;
 		}
 
-} */
-
-}
+} 
+}*/
 
 .slider .images {
 	position: relative;
 
 }
 
-.slider .img-container {
+/* .slider .img-container {
 	width: 80%;
-}
+} */
 
 .slider .images img.active {
-	width: 675px;
-	height: 450px;
+	width: 100%;
 	object-fit: cover;
 	object-position: center;
 }
@@ -94,9 +86,9 @@ img {
 	justify-content: center;
 }
 
-.d-flex {
+/* .d-flex {
 	display: flex;
-}
+} */
 
 /* Thumbs */
 
@@ -105,12 +97,12 @@ img {
 }
 
 .thumbnails {
-	width: 90px;
+	/* width: 90px; */
 	aspect-ratio: 1/1;
 }
 
 .thumb {
-	width: 150px;
+	/* width: 150px; */
 	height: calc(100% / 5);
 	object-fit: cover;
 	object-position: center;
